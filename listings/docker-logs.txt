@@ -1,0 +1,13 @@
+[I 09:51:46.940 NotebookApp] Writing notebook server cookie secret to /root/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 09:51:47.159 NotebookApp] Serving notebooks from local directory: /notebook
+[I 09:51:47.159 NotebookApp] Jupyter Notebook 6.5.2 is running at:
+[I 09:51:47.159 NotebookApp] http://cb0a3641caf0:8888/?token=2b02d31671c6ad9e9cf8e036eb6962d3592af9cfdd5e60bd
+[I 09:51:47.159 NotebookApp]  or (*@\color{red}@*)http://127.0.0.1:8888/?token=2b02d31671c6ad9e9cf8e036eb6962d3592af9cfdd5e60bd(*@\color{black}@*)
+[I 09:51:47.160 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 09:51:47.162 NotebookApp] 
+    
+To access the notebook, open this file in a browser:
+    file:///root/.local/share/jupyter/runtime/nbserver-7-open.html
+Or copy and paste one of these URLs:
+    http://cb0a3641caf0:8888/?token=2b02d31671c6ad9e9cf8e036eb6962d3592af9cfdd5e60bd
+or (*@\color{red}@*)http://127.0.0.1:8888/?token=2b02d31671c6ad9e9cf8e036eb6962d3592af9cfdd5e60bd
