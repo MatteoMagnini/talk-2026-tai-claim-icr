@@ -1,0 +1,6 @@
+\cite{Ribeiro0G16}
+Toy example to present intuition for \lime{}.
+The black-box model’s complex decision function $f$ (unknown to \lime{}) is represented by the blue/pink background, which cannot be approximated well by a linear model.
+The bold red cross is the instance being explained.
+\lime{} samples instances, gets predictions using $f$, and weighs them by the proximity to the instance being explained (represented here by size).
+The dashed line is the learned explanation that is locally (but not globally) faithful.
