@@ -97,74 +97,6 @@ outputs = ["Reveal"]
 
 {{% section %}}
 
-{{< slide id="research-themes" >}}
-
-# Main Research Directions
-<br>
-
-{{% multicol class="multicol-centered" %}}
-
-{{% col %}}
-
-## Normative AI
-- symbolic constraints for AI systems
-- explainability and verification
-- trustworthy autonomous behavior
-- fairness and controllability
-- human and institutional norms
-
-<br>
-<br>
-
-## Autonomous Learning
-- extracting structured knowledge from LLMs
-- ontology population and refinement
-- knowledge grounding
-- neuro-symbolic knowledge acquisition
-
-{{% /col %}}
-
-{{% col %}}
-
-## AI in Medicine
-- clinical decision support
-- RAG pipelines for medicine
-- explainable healthcare AI
-- hybrid symbolic/LLM systems
-- knowledge-aware medical assistants
-
-<br>
-<br>
-
-## Agentic Automation
-- orchestration of AI agents
-- multi-agent systems
-- human-in-the-loop workflows
-- reasoning-enhanced automation
-- autonomous AI pipelines
-
-{{% /col %}}
-
-{{% /multicol %}}
-
----
-
-## Common Direction
-
-Across these themes, the common goal is to combine:
-
-- symbolic reasoning,
-- formal knowledge,
-- machine learning and LLMs,
-- explainability and trustworthiness,
-- practical real-world applications.
-
-{{% /section %}}
-
----
-
-{{% section %}}
-
 {{< slide id="projects" >}}
 
 # Projects
@@ -253,11 +185,106 @@ Across these themes, the common goal is to combine:
 
 ---
 
+
+{{% section %}}
+
+{{< slide id="research-directions" >}}
+
+# Main Research Directions
+<br>
+
+{{% multicol class="multicol-centered" %}}
+
+{{% col %}}
+
+## Normative AI
+- Symbolic constraints for AI systems
+- Explainability and verification
+- Trustworthy autonomous behavior
+- Fairness and controllability
+- Human and institutional norms
+
+{{% /col %}}
+
+{{% col %}}
+
+## Agentic Automation
+- Orchestration of AI agents
+- New MAS architectures
+- Human-in-the-loop
+- Norms and governance for MAS
+- Real-world applications
+
+{{% /col %}}
+
+{{% /multicol %}}
+
+{{% /section %}}
+
+---
+
+{{% section %}}
+
+{{< slide id="papers" >}}
+
+# Papers related to the projects
+<br>
+
+
+{{% multicol %}}
+
+{{% col %}}
+## "You are Orthos"
+- "You are Orthos": An Experiment in AI-Assisted Human-Rights-Based Reasoning for Content Moderation Disputes under the Digital Services Act
+- [zenodo.org/record/19311283](https://zenodo.org/record/19311283)
+- Key Ideas:
+  - AI-assisted framework for content moderation disputes
+  - Generation of rulings based on human rights principles
+  - Expert evaluation of persuasiveness and consistency
+  - Implications for AI in legal decision support
+
+{{% /col %}}
+
+{{% col %}}
+
+## NL2UNIFOL
+- NL2UNIFOL: from Natural Language Sentences to Uniform First-Order Logic Formulae
+- Submitted to SKILLED-LLM (FLoC WS)
+- Key Ideas:
+  - LLM norm translation is commonly done at sentence level
+  - No shared vocabulary among formulae/norms for terms and predicates
+  - We propose a framework for unifying the vocabulary
+  - Future work: use modal logic
+
+{{% /col %}}
+
+{{% col %}}
+
+## AGE-ML
+- AGE-ML: A Data-Centric, Specification-Driven Architecture for Agentic AutoML
+- Submitted to Future Generation Computer Systems (FGCS)
+- Key Ideas:
+  - Automation end-to-end of the entire ML lifecycle
+  - Agentic architecture with multiple specialized agents
+  - User's specification to guide the process
+  - Explainability and human-in-the-loop for oversight and control
+
+{{% /col %}}
+
+{{% /multicol %}}
+
+{{% /section %}}
+
+---
+
 {{% section %}}
 
 {{< slide id="connections" >}}
 
 # Possible Connections Across Groups
+
+
+<br>
 
 {{% multicol %}}
 
@@ -273,7 +300,9 @@ Across these themes, the common goal is to combine:
 - reasoning with LLMs
 - formal methods for AI
 
-<br>
+{{% /col %}}
+
+{{% col %}}
 
 ## CLAIM
 
@@ -298,29 +327,9 @@ Across these themes, the common goal is to combine:
 - verification and validation
 - safe agentic systems
 
-<br>
-
-## Shared Challenges
-
-- trustworthy LLMs
-- symbolic + neural integration
-- AI governance
-- human-AI collaboration
-- high-stakes AI applications
-
 {{% /col %}}
 
 {{% /multicol %}}
-
----
-
-## Questions I am currently interested in
-
-- How can symbolic reasoning improve LLM reliability?
-- How can norms and constraints guide autonomous systems?
-- Can LLMs support ontology construction and maintenance?
-- How do we build trustworthy agentic AI?
-- How do we keep humans effectively in the loop?
 
 {{% /section %}}
 
