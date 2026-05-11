@@ -292,13 +292,6 @@ outputs = ["Reveal"]
 
 ## ICR
 
-### Logic and Reasoning
-
-- neuro-symbolic AI
-- ontology learning
-- knowledge representation
-- reasoning with LLMs
-- formal methods for AI
 
 {{% /col %}}
 
@@ -306,26 +299,11 @@ outputs = ["Reveal"]
 
 ## CLAIM
 
-### Normative Systems and AI & Law
-
-- legal reasoning
-- norm-aware AI agents
-- compliance and governance
-- trustworthy autonomous systems
-
 {{% /col %}}
 
 {{% col %}}
 
 ## TAI
-
-### Trustworthy AI
-
-- explainability
-- fairness
-- human oversight
-- verification and validation
-- safe agentic systems
 
 {{% /col %}}
 
