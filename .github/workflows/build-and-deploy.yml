@@ -1,7 +1,10 @@
-name: Build and deploy
+name: Deploy Hugo site to Pages
 
 on:
   push:
+    branches:
+      - main
+      - master
     tags: '*'
     branches-ignore:
       - 'autodelivery**'
@@ -11,118 +14,111 @@ on:
       - 'README.md'
       - 'CHANGELOG.md'
       - 'LICENSE'
-      - '.github/workflows/update-hugo.yml'
+
   pull_request:
   workflow_dispatch:
 
-permissions: {}
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
-  success:
+  build:
     runs-on: ubuntu-latest
-    concurrency:
-      group: slides-${{ github.ref }}
-      cancel-in-progress: false
-    permissions:
-      contents: write
+
+    env:
+      HUGO_VERSION: 0.147.8
+
     steps:
-      # Checkout the repository
+      # Checkout repo
       - name: Checkout
-        uses: danysk/action-checkout@0.2.22
-      - name: Compute the version of Hugo
-        id: hugo
-        shell: bash
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      # Install Hugo
+      - name: Install Hugo CLI
         run: |
-          # Idea: the regex matcher of Renovate keeps this string up to date automatically
-          # The version is extracted and used to access the correct version of the scripts
-          USES=$(cat <<TRICK_RENOVATE
-          - uses: gohugoio/hugo@v0.147.8
-          TRICK_RENOVATE
-          )
-          echo "Scripts update line: \"$USES\""
-          echo "Computed version: \"${USES#*@v}\""
-          echo "version=${USES#*@v}" >> $GITHUB_OUTPUT
-      - name: Download Hugo
-        run: |
-          HUGO_VERSION="${{ steps.hugo.outputs.version }}"
-          URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
-          wget --retry-connrefused --waitretry=1 --read-timeout=20 "$URL" --output-document=hugo.deb
-      - name: List files
-        run: ls -ahl
-      - name: Install Hugo
-        run: sudo dpkg -i hugo.deb
+          wget -O ${{ runner.temp }}/hugo.deb \
+          https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
       - name: Print Hugo version
         run: hugo version
-      - name: Remove Hugo Installer
-        run: rm hugo.deb
+
+      # Setup Pages (IMPORTANT for baseURL)
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # Ruby preprocessing (your pipeline)
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.245.0
+        uses: ruby/setup-ruby@v1
         with:
           working-directory: shared-slides
+
       - name: Run the preprocessor
         run: shared-slides/preprocess.rb
-      - name: Build slides with hugo
-        run: hugo
+
+      # Build Hugo
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+        run: |
+          hugo \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      # Debug (IMPORTANT to catch empty builds)
+      - name: Debug output
+        run: ls -R public
+
+      # Ensure GitHub Pages compatibility
+      - name: Disable Jekyll
+        run: touch public/.nojekyll
+
+      # Setup Node 22 (FIX for inline-mermaid)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Mermaid processing
       - name: Transform and Inline Mermaid charts
         uses: cric96/inline-mermaid@1.14.1
         with:
-          css-file-regex: '^css\\/.*custom.*theme.*\\.css$'
-          root-folder: build
+          css-file-regex: '.*custom.*theme.*\.css$'
+          root-folder: ./public
+          file-regex: '.*\.html?$'
           config-file: config.toml
-      - name: Get branch name
-        id: branch-name
-        uses: tj-actions/branch-names@v8
-      - name: Deploy website
-        if: ${{ github.event_name != 'pull_request' && steps.branch-name.outputs.is_default == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4.7.3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          folder: build
 
-  create-and-deploy-pdfs:
+      # Upload artifact for GitHub Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-    concurrency:
-      group: pdf-slides-${{ github.event_name }}-${{ github.ref }}
-      cancel-in-progress: false
-    needs:
-      - success
-    permissions:
-      contents: write
+    needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Checkout the PDF creation script
-        uses: actions/checkout@v4.2.2
-        with:
-          submodules: recursive
-      - name: Checkout the current website
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-          path: pages
-          ref: gh-pages
-      - name: Create version
-        id: version-compute
-        run: echo "version=$(date +"%Y.%m.%d")" >> "$GITHUB_OUTPUT"
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.245.0
-        with:
-          working-directory: shared-slides
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@latest
-        with:
-          chrome-version: stable
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y poppler-utils
-      - name: Make the pdfs
-        run: shared-slides/makepdfs.rb pages
-      - name: Deliver the pdfs
-        if: ${{ github.event_name != 'pull_request' && (github.ref_name == 'main' || github.ref_name == 'master') }}
-        uses: ncipollo/release-action@v1.16.0
-        with:
-          allowUpdates: true
-          artifacts: "*.pdf"
-          replacesArtifacts: true
-          tag: ${{ steps.version-compute.outputs.version }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
