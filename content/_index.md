@@ -183,29 +183,66 @@ Across these themes, the common goal is to combine:
   - norms
   - argumentation
 
+
+<br>
+<br>
+
+## AI4Kids
+- FNR - Ongoing
+- [www.fnr.lu/results-hpc-ai-bridges-joint-fnr-meco-luxinnovation-call](https://www.fnr.lu/results-hpc-ai-bridges-joint-fnr-meco-luxinnovation-call/#:~:text=1%2C423%20million%20euros-,AI4Kids,-This%20joint%20project)
+- Key Ideas:
+  - child-friendly AI
+  - QTrobot
+  - HPC simulations
+
+
 {{% /col %}}
 {{% col %}}
 
 ## VERITAS
 - EU - Submitted
+- Key Ideas:
+  - trustworthy AI agents
+  - formal verification
+  - reflective halt mechanisms
+  - uncertainty-aware reasoning
+  - human oversight by design
 
-{{% /col %}}
-{{% col %}}
+<br>
+<br>
 
 ## EUtomate
 - EU - Submitted
+- Key Ideas:
+  - autonomous workflow automation
+  - neuro-symbolic agents
+  - normative governance
+  - human-in-the-loop
+  - multi-agent coordination
 
 {{% /col %}}
 {{% col %}}
 
 ## ARLEX
 - FNR - Submitted
+- ["You are Orthos"](https://zenodo.org/records/19311284)
+- Key Ideas:
+  - Digital Service Act Art. 21
+  - Out-of-court dispute settlement
+  - Human-rights
+  - Rulings supporting adjudicators
 
-{{% /col %}}
-{{% col %}}
+<br>
+<br>
 
 ## RAISE
 - EU - Submitted
+- Key Ideas:
+  - European Virtual AI Institute
+  - Frontier AI Moonshot
+  - Collaborative Research Pooling
+  - AI Talent & Community Building
+  - Long-term Sustainability & Governance
 
 
 {{% /col %}}
