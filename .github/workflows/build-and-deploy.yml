@@ -79,11 +79,11 @@ jobs:
 
       # Debug (IMPORTANT to catch empty builds)
       - name: Debug output
-        run: ls -R public
+        run: ls -R build
 
       # Ensure GitHub Pages compatibility
       - name: Disable Jekyll
-        run: touch public/.nojekyll
+        run: touch build/.nojekyll
 
       # Setup Node 22 (FIX for inline-mermaid)
       - name: Setup Node
@@ -96,7 +96,7 @@ jobs:
         uses: cric96/inline-mermaid@1.14.1
         with:
           css-file-regex: '.*custom.*theme.*\.css$'
-          root-folder: ./public
+          root-folder: ./build
           file-regex: '.*\.html?$'
           config-file: config.toml
 
@@ -104,7 +104,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./build
 
   deploy:
     if: github.event_name != 'pull_request'
