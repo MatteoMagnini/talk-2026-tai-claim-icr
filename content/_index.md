@@ -10,6 +10,7 @@ outputs = ["Reveal"]
 
 <span class="hint">(last built on: {{< today >}})</span>
 
+
 {{< mm >}}
 
 <br> Postdoctoral Researcher
@@ -40,6 +41,7 @@ outputs = ["Reveal"]
 {{< slide id="about-me" >}}
 
 # About Me
+<br>
 
 {{% multicol %}}
 
@@ -52,45 +54,38 @@ outputs = ["Reveal"]
 {{% col %}}
 
 ## Matteo Magnini
+- Postdoctoral Researcher DCS - IRC group
+- PhD in CSE at University of Bologna
 
-- Postdoctoral Researcher
-- Department of Computer Science
-- University of Luxembourg
-
+<br>
 <br>
 
 ## Main Research Areas
-
 - Neuro-Symbolic AI
-- Normative and Trustworthy AI
-- Ontology Learning
-- Knowledge Extraction and Injection
-- Large Language Models
-- AI for Medicine
-- Agentic Automation
+  - Symbolic Knowledge Extraction
+  - Symbolic Knowledge Injection
+- Fairness in AI
+- Application of Large Language Models
+  - Healthcare 
 
 {{% /col %}}
 
 {{% col %}}
 
 ## Current Focus
+- Normative and Trustworthy AI
+  - Norm mining and translation
+- Multi-agent Systems (2.0)
+  - Automation of complex workflows
 
-Building AI systems that combine:
-
-- symbolic reasoning
-- machine learning and LLMs
-- structured knowledge
-- explainability and constraints
-- human-centric automation
-
+<br>
 <br>
 
 ## Perspective
-
-Bridging:
-- logic and machine learning,
-- formal reasoning and LLMs,
-- trustworthy AI and applied AI systems.
+- Ensuring safety and trustworthiness
+  - especially when relying on LLMs
+- Bridging Formal reasoning and LLMs
+- Embodied agents in the real world
 
 {{% /col %}}
 
@@ -104,14 +99,14 @@ Bridging:
 
 {{< slide id="research-themes" >}}
 
-# Main Research Themes
+# Main Research Directions
+<br>
 
-{{% multicol %}}
+{{% multicol class="multicol-centered" %}}
 
 {{% col %}}
 
 ## Normative AI
-
 - symbolic constraints for AI systems
 - explainability and verification
 - trustworthy autonomous behavior
@@ -119,9 +114,9 @@ Bridging:
 - human and institutional norms
 
 <br>
+<br>
 
-## Ontology Learning
-
+## Autonomous Learning
 - extracting structured knowledge from LLMs
 - ontology population and refinement
 - knowledge grounding
@@ -132,7 +127,6 @@ Bridging:
 {{% col %}}
 
 ## AI in Medicine
-
 - clinical decision support
 - RAG pipelines for medicine
 - explainable healthcare AI
@@ -140,9 +134,9 @@ Bridging:
 - knowledge-aware medical assistants
 
 <br>
+<br>
 
 ## Agentic Automation
-
 - orchestration of AI agents
 - multi-agent systems
 - human-in-the-loop workflows
@@ -171,79 +165,48 @@ Across these themes, the common goal is to combine:
 
 {{% section %}}
 
-{{< slide id="recent-work" >}}
+{{< slide id="projects" >}}
 
-# Recent and Ongoing Projects
+# Projects
+<br>
 
 {{% multicol %}}
 
 {{% col %}}
 
 ## DJ4ME
-
-### AI for healthcare
-
-- medical decision support
-- knowledge-enhanced AI
-- explainable medical systems
-- healthcare automation
-
-<br>
-
-## VERITAS
-
-### Trustworthy AI
-
-- verification and validation
-- normative constraints
-- reliable autonomous systems
-- explainability and safety
-
-<br>
-
-## EUtomate
-
-### Agentic automation
-
-- AI orchestration
-- autonomous workflows
-- collaborative AI systems
-- process automation
+- FNR - Ongoing
+- [icr.uni.lu/dj4me/index.html](https://icr.uni.lu/dj4me/index.html)
+- Key Ideas:
+  - stakeholder-driven
+  - avatars
+  - norms
+  - argumentation
 
 {{% /col %}}
+{{% col %}}
 
+## VERITAS
+- EU - Submitted
+
+{{% /col %}}
+{{% col %}}
+
+## EUtomate
+- EU - Submitted
+
+{{% /col %}}
 {{% col %}}
 
 ## ARLEX
+- FNR - Submitted
 
-### AI & Law
-
-- legal reasoning
-- compliance-aware AI
-- normative systems
-- AI-assisted legal workflows
-
-<br>
+{{% /col %}}
+{{% col %}}
 
 ## RAISE
+- EU - Submitted
 
-### Responsible AI
-
-- explainability
-- symbolic constraints
-- trustworthy deployment
-- human-centric AI systems
-
-<br>
-
-## Shared Perspective
-
-Across projects:
-
-- symbolic + sub-symbolic integration
-- reasoning-enhanced LLMs
-- trustworthy AI systems
-- human-centered AI applications
 
 {{% /col %}}
 
