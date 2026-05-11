@@ -5,9 +5,6 @@ name: Deploy Hugo site to Pages
 on:
   push:
     tags: '*'
-    branches:
-      - master
-      - main
     branches-ignore:
       - 'autodelivery**'
       - 'bump-**'
