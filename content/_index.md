@@ -6,7 +6,7 @@ outputs = ["Reveal"]
 
 {{% section %}}
 
-# Neuro-Symbolic AI,<br>Normative Systems, and Applied AI
+# Agentic AI: Research Overview
 
 <span class="hint">(last built on: {{< today >}})</span>
 

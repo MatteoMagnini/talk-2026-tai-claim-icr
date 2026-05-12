@@ -50,7 +50,7 @@ $linkColor: #2690e7;
 $linkColorHover: lighten( $linkColor, 25% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 $detailBackgroundColor: #dae5e9;
-$logo: url("../example-background-neg.svg");
+$logo: url("../logo_unilu_fr.svg");
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;
@@ -61,7 +61,7 @@ $heading4Size: 1.0em;
 
 section.has-light-background {
 	$detailBackgroundColor: #bd2b0b !global;
-	$logo: url("../example-background.svg") !global;
+	$logo: url("../logo_unilu_fr.svg") !global;
 
 	&, h1, h2, h3, h4, h5, h6 {
 		color: #222;
@@ -264,7 +264,7 @@ kbd {
 	background-image: $logo;
 	background-repeat: no-repeat;
 	background-position: 0.45% 99.2%;
-	background-size: 15%;
+	background-size: 5%;
 	background-clip: border-box;
 	// border-radius: 30px;
 	// border-style: solid;
@@ -273,7 +273,7 @@ kbd {
 }
 
 .reveal .slide-background:after {
-	content: "M. Magnini. \"SKE & SKI – Theory and Methods\"";
+	content: "M. Magnini. \"Agentic AI: Research Overview\"";
 	position: absolute;
 	bottom: 2.5%;
 	right: 6%;
