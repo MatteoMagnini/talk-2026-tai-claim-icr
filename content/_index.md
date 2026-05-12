@@ -283,31 +283,49 @@ outputs = ["Reveal"]
 
 # Possible Connections Across Groups
 
-
 <br>
 
-{{% multicol %}}
+{{% multicol class="multicol-centered" %}}
 
 {{% col %}}
 
 ## ICR
-
+- Agentic workflows
+- Neuro-symbolic AI
+- Human-in-the-loop systems
+- Multi-agent orchestration
 
 {{% /col %}}
 
 {{% col %}}
 
 ## CLAIM
+- Normative AI
+- Formal verification
+- AI governance
+- Compliance-aware systems
 
 {{% /col %}}
 
 {{% col %}}
 
 ## TAI
+- Human-centric AI
+- Trustworthy AI
+- AI safety
+- Responsible LLMs
 
 {{% /col %}}
 
 {{% /multicol %}}
+
+<br>
+
+## Shared Directions
+- Norm-aware AI agents
+- Verification for autonomous systems
+- AI-assisted legal reasoning
+- Governance for agentic AI
 
 {{% /section %}}
 
@@ -319,5 +337,39 @@ outputs = ["Reveal"]
 
 # Collaboration Opportunities
 
+<br>
+
+{{% multicol %}}
+
+{{% col %}}
+
+## Student Projects
+- High student interest in AI projects
+- Currently supervising 6–7 students
+- Opportunity for co-supervision
+- Shared thesis/project ideas
+
+{{% /col %}}
+
+{{% col %}}
+
+## GitHub Organization
+- Shared repositories
+- Unified project templates
+- Shared datasets/resources
+
+{{% /col %}}
+
+{{% col %}}
+
+## Example Repositories
+- `student-projects`
+- `research-projects`
+- `documents`
+- `datasets`
+
+{{% /col %}}
+
+{{% /multicol %}}
 
 {{% /section %}}
