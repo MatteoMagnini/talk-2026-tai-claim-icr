@@ -54,7 +54,7 @@ outputs = ["Reveal"]
 {{% col %}}
 
 ## Matteo Magnini
-- Postdoctoral Researcher DCS - IRC group
+- Postdoctoral Researcher DCS - ICR group
 - PhD in CSE at University of Bologna
 
 <br>
